@@ -18,7 +18,8 @@ export const getAllFlips = () => async (dispatch) => {
 }
 
 export const updateItemData = () => async (dispatch) =>{
-    const currency = await fetch("/api/items")
+    const currency = await fetch("/api/items/")
+    console.log(currency)
     return currency
 }
 
