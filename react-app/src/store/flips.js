@@ -17,6 +17,11 @@ export const getAllFlips = () => async (dispatch) => {
   return json
 }
 
+export const updateItemData = () => async (dispatch) =>{
+    const currency = await fetch("/api/items")
+    return currency
+}
+
 const initialState = {}
 
 const flipsReducer = (state = initialState, action) => {
