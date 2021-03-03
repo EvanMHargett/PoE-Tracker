@@ -9,10 +9,10 @@ function Flip(flip){
 
     return (
         <div>
-            <div>{profit}</div>
-            <div>{revenue}</div>
-            <div>{trades}</div>
-            <div>{cost}</div>
+            <div>{flip.profit}</div>
+            <div>{flip.revenue}</div>
+            <div>{flip.trades}</div>
+            <div>{flip.cost}</div>
         </div>
     )
 }
