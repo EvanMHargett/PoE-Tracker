@@ -17,12 +17,6 @@ export const getAllFlips = () => async (dispatch) => {
   return json
 }
 
-export const updateItemData = () => async (dispatch) =>{
-    const currency = await fetch("https://poe.ninja/api/data/currencyoverview?league=Ritual&type=Currency")
-    console.log(currency)
-    return currency
-}
-
 const initialState = {}
 
 const flipsReducer = (state = initialState, action) => {
