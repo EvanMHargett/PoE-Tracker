@@ -21,7 +21,7 @@ def upgrade():
     op.create_table('items',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=55), nullable=False),
-    sa.Column('priceInC', sa.Integer(), nullable=False),
+    sa.Column('priceInC', sa.Numeric(10,2), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('flips',
