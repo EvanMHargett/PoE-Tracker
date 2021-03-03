@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from ..config import Config
-from app.models import Flip, Item
+from app.models import Flip, Item, db
 import httplib2
 import json
 
@@ -23,6 +23,12 @@ def getAllItems():
     for item in item_list:
         print("line break ----------------")
         print(item)
+        newItem = Item(
+            name=item["currencyTypeName"],
+            priceInC=item['chaosEquivalent']
+        )
+        db.session.add(newItem)
+    db.session.commit()
     return content
     # req = urllib.request.Request(url = 'https://poe.ninja/api/data/currencyoverview?league=Ritual&type=Currency')
     # with urllib.request.urlopen(req) as response:
