@@ -1,5 +1,6 @@
 const GET_ALL_FLIPS = 'flips/all'
 
+
 const fetchFlips = (flips) =>{
     return {
         type: GET_ALL_FLIPS,
@@ -14,6 +15,12 @@ export const getAllFlips = () => async (dispatch) => {
   console.log(json)
   dispatch(fetchFlips(json))
   return json
+}
+
+export const updateItemData = () => async (dispatch) =>{
+    const currency = await fetch("https://poe.ninja/api/data/currencyoverview?league=Ritual&type=Currency")
+    console.log(currency)
+    return currency
 }
 
 const initialState = {}
