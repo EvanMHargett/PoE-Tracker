@@ -8,6 +8,7 @@ function FlipsPage(){
     const cost = 2
     const revenue = 3
     const trades = 4
+    console.log(flips[1])
 
     return (
         <div>

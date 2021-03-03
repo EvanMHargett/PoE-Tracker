@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Flip(flip){
-
+function Flip({flip}){
+    console.log("flip in component", flip)
     const profit = 1
     const cost = 2
     const revenue = 3
