@@ -18,3 +18,12 @@ class Flip(db.Model):
   input1 = db.relationship("Item", foreign_keys=[input1Id])
   input2 = db.relationship("Item", foreign_keys=[input2Id])
   output = db.relationship("Item", foreign_keys=[outputId])
+
+  def to_dict(self):
+      return {
+          "id": self.id,
+          "cost": self.cost,
+          "trades": self.trades,
+          "revenue": self.revenue,
+          "profit": self.profit,
+      }
