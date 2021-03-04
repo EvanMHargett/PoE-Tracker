@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from ..config import Config
-from app.models import Flip, Item, Comment
+from app.models import Flip, Item, Comment, db
 
 comment_routes = Blueprint('comments', __name__)
 
