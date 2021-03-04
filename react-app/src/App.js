@@ -10,6 +10,8 @@ import User from "./components/User"
 import { authenticate } from "./services/auth"
 import FlipsPage from './components/FlipsPage'
 import {getAllFlips} from './store/flips'
+import {getAllComments} from './store/comments'
+import {getAllFavorites} from './store/favorites'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false)
@@ -22,10 +24,12 @@ function App() {
       if (!user.errors) {
         setAuthenticated(true);
         dispatch(getAllFlips())
+        dispatch(getAllComments())
+        dispatch(getAllFavorites())
       }
       setLoaded(true);
     })();
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;

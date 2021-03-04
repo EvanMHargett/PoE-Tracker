@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from ..config import Config
 from app.models import Flip, Item, Comment
 
-comment_routes = Blueprint('items', __name__)
+comment_routes = Blueprint('comments', __name__)
 
 @comment_routes.route('/')
 def getAllComments():
