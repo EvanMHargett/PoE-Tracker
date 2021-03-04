@@ -1,9 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import flipsReducer from "./flips";
+import commentsReducer from "./comments";
+import favoritesReducer from "./favorites";
 
 const rootReducer = combineReducers({
   flips: flipsReducer,
+  comments: commentsReducer,
+  favorites: favoritesReducer,
 });
 
 let enhancer;
