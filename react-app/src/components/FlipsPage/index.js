@@ -14,10 +14,7 @@ function FlipsPage(){
 
     return (
         <div className="table-responsive">
-            <table className="table table-sm">
-                <thead></thead>
-                <Flip flip={flips[1]}></Flip>
-            </table>
+            <Flip flip={flips[1]}></Flip>
             <button onClick={update}>Update item data</button>
         </div>
     )

@@ -12,8 +12,8 @@ function Flip({flip}){
                 <span>Total Revenue: {flip.revenue}  </span>
                 <span>Profit: {flip.profit}  </span>
                 <span>Trades Required: {flip.trades}  </span>
-                <FavoriteBorder></FavoriteBorder>
-                <NoteAdd></NoteAdd>
+                <FavoriteBorder id={flip.id}></FavoriteBorder>
+                <NoteAdd id={flip.id}></NoteAdd>
             </div>}
         </div>
     )
