@@ -19,7 +19,7 @@ const addFavorite = (favorite) =>{
 const deleteFavorite = (flipId) =>{
     return {
         type: DELETE_FAVORITE,
-        payload: favoriteId,
+        payload: flipId,
     }
 }
 
@@ -29,15 +29,6 @@ export const getAllFavorites = () => async (dispatch) => {
   const json = await favorites.json()
   console.log(json)
   dispatch(fetchFavorites(json))
-  return json
-}
-
-export const createFavorite = (flipId) => async (dispatch) => {
-//   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
-  const favorite = await fetch(`/api/favorites/${flipId}`)
-  const json = await favorite.json()
-  console.log(json)
-  dispatch(addFavorite(json))
   return json
 }
 
@@ -63,6 +54,11 @@ export const removeFavorite = (flipId) => async (dispatch) => {
 
 const initialState = {}
 
+
+// NOTE: Favorites are stored with the key being the ID of the flip they are
+// associated with. This makes telling if we have a favorite very easy since,
+// each user has at most 1 favorite on each flip. 
+
 const favoritesReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
@@ -72,12 +68,12 @@ const favoritesReducer = (state = initialState, action) => {
       return newState;
     case ADD_FAVORITE:
       newState = Object.assign({}, state);
-      newState[action.payload.id] = action.payload
+      newState[action.payload.flipId] = action.payload
       return newState
     case DELETE_FAVORITE:
-        newState = Object.assign({}, state);
-        delete newstate[action.payload]
-        return newState
+      newState = Object.assign({}, state);
+      delete newState[action.payload]
+      return newState
     default:
       return state;
   }

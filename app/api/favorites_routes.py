@@ -11,12 +11,12 @@ def getAllFavorites():
     # print("---------------------------------", favorites)
     favoritesDict = {}
     for favorite in favorites:
-        favoritesDict[favorite.id] = favorite.to_dict()
+        favoritesDict[favorite.flipId] = favorite.to_dict()
 
     return favoritesDict
 
 
-@favorite_routes.route('/<int:flipId>')
+@favorite_routes.route('/<int:flipId>', methods=["POST"])
 def setFavorite(flipId):
     favorite = Favorite(
         userId=current_user.id,
@@ -26,7 +26,7 @@ def setFavorite(flipId):
     db.session.commit()
     return favorite.to_dict()
 
-@favorite_routes.route('/<int:flipId>')
+@favorite_routes.route('/<int:flipId>/delete', methods=["POST"])
 def deleteFavorite(flipId):
     favorite = Favorite.query.filter_by(
         userId=current_user.id,
