@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
 import "./Flip.css";
 import { FavoriteBorder, NoteAdd} from '@material-ui/icons'
+import DeleteIcon from '@material-ui/icons/Delete'
 import {createFavorite, removeFavorite} from '../../store/favorites'
-import {postComment} from '../../store/comments'
+import {postComment, deleteComment} from '../../store/comments'
 import {useDispatch, useSelector} from 'react-redux'
 
 function Flip({flip}){
     const dispatch = useDispatch()
     const favorites = useSelector((state) => state.favorites)
+    const comments = useSelector((state) => state.comments)
     const [editing, setEditing] = useState(false)
     const [comment, setComment] = useState("")
 
@@ -26,6 +28,12 @@ function Flip({flip}){
 
     function submitEdit(){
         dispatch(postComment(flip.id, comment))
+        setEditing(false)
+        setComment("")
+    }
+
+    function deleteFlipComment(){
+        dispatch(deleteComment(flip.id))
     }
 
     return (
@@ -40,10 +48,16 @@ function Flip({flip}){
                     :
                     <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip}></FavoriteBorder>
                 }
+                { comments[flip.id] &&
+                    <div>
+                        <div>{comments[flip.id].content}</div>
+                        <DeleteIcon onClick={deleteFlipComment}></DeleteIcon>
+                    </div>
+                }
                 <NoteAdd id={flip.id} onClick={toggleEdit}></NoteAdd>
                 {  editing && 
                     <div>
-                        <input onChange={e => setComment(e.target.value)} value={comment}></input>
+                        <input onChange={e => setComment(e.target.value)} value={comment} placeholder={comments[flip.id].content}></input>
                         <button onClick={submitEdit}>Submit Comment</button>
                     </div>
                 }
