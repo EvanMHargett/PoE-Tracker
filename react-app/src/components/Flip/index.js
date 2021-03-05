@@ -57,7 +57,7 @@ function Flip({flip}){
                 <NoteAdd id={flip.id} onClick={toggleEdit}></NoteAdd>
                 {  editing && 
                     <div>
-                        <input onChange={e => setComment(e.target.value)} value={comment} placeholder={comments[flip.id].content}></input>
+                        <input onChange={e => setComment(e.target.value)} value={comment} ></input>
                         <button onClick={submitEdit}>Submit Comment</button>
                     </div>
                 }
