@@ -14,7 +14,7 @@ def getAllComments():
 
     return commentsDict
 
-@comment_routes.route('/<int:flipId>/new', methods=["POST"])
+@comment_routes.route('/<int:flipId>/new/', methods=["POST"])
 @login_required
 def addComment(flipId):
     comment = Comment.query.filter_by(
