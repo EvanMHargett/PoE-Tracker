@@ -7,7 +7,6 @@ function FlipsPage(){
     const flips = useSelector(state => state.flips)
  
     const dispatch = useDispatch()
-    console.log(flips[1])
     const update = () =>{
         // dispatch(updateItemData())
     }

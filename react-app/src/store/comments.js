@@ -12,7 +12,6 @@ export const getAllComments = () => async (dispatch) => {
 //   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
   const comments = await fetch('/api/comments/')
   const json = await comments.json()
-  console.log(json)
   dispatch(fetchComments(json))
   return json
 }

@@ -3,8 +3,10 @@ import thunk from "redux-thunk";
 import flipsReducer from "./flips";
 import commentsReducer from "./comments";
 import favoritesReducer from "./favorites";
+import sessionReducer from "./session"
 
 const rootReducer = combineReducers({
+  session: sessionReducer,
   flips: flipsReducer,
   comments: commentsReducer,
   favorites: favoritesReducer,

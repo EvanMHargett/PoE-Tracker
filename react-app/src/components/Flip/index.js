@@ -5,16 +5,9 @@ import {createFavorite, removeFavorite} from '../../store/favorites'
 import {useDispatch, useSelector} from 'react-redux'
 
 function Flip({flip}){
-    console.log("flip in component", flip)
     const dispatch = useDispatch()
     const favorites = useSelector((state) => state.favorites)
     function toggleFavoriteFlip(){
-        // const id = e.currentTarget.id
-        // console.log(id)
-        // if(isNaN(id)){
-        //     console.log("something went wrong, ", e.currentTarget, e.target)
-        //     return null
-        // }
         if(favorites[flip.id]){
             dispatch(removeFavorite(flip.id))
         }
