@@ -27,11 +27,11 @@ export const getAllComments = () => async (dispatch) => {
 
 export const postComment = (flipId, content) => async (dispatch) => {
 //   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
-  const comments = await fetch(`/api/comments/${flipId}new/`, {
+  const comment = await fetch(`/api/comments/${flipId}/new/`, {
       method: "POST",
       body: content
   })
-  const json = await comments.json()
+  const json = await comment.json()
   dispatch(submitComment(json))
   return json
 }

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import "./Flip.css";
 import { FavoriteBorder, NoteAdd} from '@material-ui/icons'
 import {createFavorite, removeFavorite} from '../../store/favorites'
+import {postComment} from '../../store/comments'
 import {useDispatch, useSelector} from 'react-redux'
 
 function Flip({flip}){
@@ -24,7 +25,7 @@ function Flip({flip}){
     }
 
     function submitEdit(){
-        
+        dispatch(postComment(flip.id, comment))
     }
 
     return (
