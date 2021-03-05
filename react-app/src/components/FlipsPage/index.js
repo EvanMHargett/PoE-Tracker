@@ -9,7 +9,7 @@ function FlipsPage(){
     const dispatch = useDispatch()
     console.log(flips[1])
     const update = () =>{
-        dispatch(updateItemData())
+        // dispatch(updateItemData())
     }
 
     return (
