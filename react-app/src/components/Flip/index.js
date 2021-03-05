@@ -1,20 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Flip.css";
 import { FavoriteBorder, NoteAdd} from '@material-ui/icons'
 import {createFavorite, removeFavorite} from '../../store/favorites'
+import {postComment} from '../../store/comments'
 import {useDispatch, useSelector} from 'react-redux'
 
 function Flip({flip}){
-    console.log("flip in component", flip)
     const dispatch = useDispatch()
     const favorites = useSelector((state) => state.favorites)
+    const [editing, setEditing] = useState(false)
+    const [comment, setComment] = useState("")
+
     function toggleFavoriteFlip(){
-        // const id = e.currentTarget.id
-        // console.log(id)
-        // if(isNaN(id)){
-        //     console.log("something went wrong, ", e.currentTarget, e.target)
-        //     return null
-        // }
         if(favorites[flip.id]){
             dispatch(removeFavorite(flip.id))
         }
@@ -22,6 +19,15 @@ function Flip({flip}){
             dispatch(createFavorite(flip.id))
         }
     }
+
+    function toggleEdit(){
+        setEditing(value => !value)
+    }
+
+    function submitEdit(){
+        dispatch(postComment(flip.id, comment))
+    }
+
     return (
         <div className="container-fluid">
             {flip && <div>
@@ -34,7 +40,13 @@ function Flip({flip}){
                     :
                     <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip}></FavoriteBorder>
                 }
-                <NoteAdd id={flip.id}></NoteAdd>
+                <NoteAdd id={flip.id} onClick={toggleEdit}></NoteAdd>
+                {  editing && 
+                    <div>
+                        <input onChange={e => setComment(e.target.value)} value={comment}></input>
+                        <button onClick={submitEdit}>Submit Comment</button>
+                    </div>
+                }
             </div>}
         </div>
     )

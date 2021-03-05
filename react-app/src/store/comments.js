@@ -1,4 +1,6 @@
 const GET_ALL_COMMENTS = 'comments/all'
+const SUBMIT_COMMENT = 'comments/submit'
+
 
 const fetchComments = (comments) =>{
     return {
@@ -7,13 +9,33 @@ const fetchComments = (comments) =>{
     }
 }
 
+const submitComment = (comment) =>{
+    return {
+        type: SUBMIT_COMMENT,
+        payload: comment,
+    }
+}
+
 
 export const getAllComments = () => async (dispatch) => {
 //   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
   const comments = await fetch('/api/comments/')
   const json = await comments.json()
-  console.log(json)
   dispatch(fetchComments(json))
+  return json
+}
+
+export const postComment = (flipId, content) => async (dispatch) => {
+//   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
+  const comment = await fetch(`/api/comments/${flipId}/new/`, {
+      method: "POST",
+      body: content,
+  })
+  console.log("INFO about failed", comment)
+  const json = await comment.json()
+
+  console.log(comment, json)
+  dispatch(submitComment(json))
   return json
 }
 

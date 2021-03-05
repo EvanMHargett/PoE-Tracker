@@ -13,3 +13,28 @@ def getAllComments():
         commentsDict[comment.id] = comment.to_dict()
 
     return commentsDict
+
+@comment_routes.route('/<int:flipId>/new', methods=["POST"])
+@login_required
+def addComment(flipId):
+    comment = Comment.query.filter_by(
+        flipId=flipId,
+        userId=current_user.id
+    ).first()
+
+    if comment:
+        db.session.delete(comment)
+        db.session.commit()
+
+    commentContent = request.data.decode('ascii')
+
+    newComment = Comment(
+        flipId=flipId,
+        userId=current_user.id,
+        content=commentContent
+    )
+    
+    db.session.add(newComment)
+    db.session.commit()
+
+    return newComment.to_dict()

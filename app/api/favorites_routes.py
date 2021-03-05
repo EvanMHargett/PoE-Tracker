@@ -17,6 +17,7 @@ def getAllFavorites():
 
 
 @favorite_routes.route('/<int:flipId>', methods=["POST"])
+@login_required
 def setFavorite(flipId):
     favorite = Favorite(
         userId=current_user.id,
@@ -27,6 +28,7 @@ def setFavorite(flipId):
     return favorite.to_dict()
 
 @favorite_routes.route('/<int:flipId>/delete', methods=["POST"])
+@login_required
 def deleteFavorite(flipId):
     favorite = Favorite.query.filter_by(
         userId=current_user.id,
