@@ -12,6 +12,7 @@ import FlipsPage from './components/FlipsPage'
 import {getAllFlips} from './store/flips'
 import {getAllComments} from './store/comments'
 import {getAllFavorites} from './store/favorites'
+import {addUser} from './store/session'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false)
@@ -23,6 +24,7 @@ function App() {
       const user = await authenticate();
       if (!user.errors) {
         setAuthenticated(true);
+        dispatch(addUser(user))
         dispatch(getAllFlips())
         dispatch(getAllComments())
         dispatch(getAllFavorites())
