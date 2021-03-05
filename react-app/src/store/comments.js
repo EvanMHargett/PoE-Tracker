@@ -31,7 +31,6 @@ export const postComment = (flipId, content) => async (dispatch) => {
       method: "POST",
       body: content,
   })
-  console.log("INFO about failed", comment)
   const json = await comment.json()
 
   console.log(comment, json)
