@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Flip.css";
 import { FavoriteBorder, NoteAdd} from '@material-ui/icons'
 import {createFavorite, removeFavorite} from '../../store/favorites'
@@ -7,6 +7,9 @@ import {useDispatch, useSelector} from 'react-redux'
 function Flip({flip}){
     const dispatch = useDispatch()
     const favorites = useSelector((state) => state.favorites)
+    const [editing, setEditing] = useState(false)
+    const [comment, setComment] = useState("")
+
     function toggleFavoriteFlip(){
         if(favorites[flip.id]){
             dispatch(removeFavorite(flip.id))
@@ -15,6 +18,15 @@ function Flip({flip}){
             dispatch(createFavorite(flip.id))
         }
     }
+
+    function toggleEdit(){
+        setEditing(value => !value)
+    }
+
+    function submitEdit(){
+
+    }
+
     return (
         <div className="container-fluid">
             {flip && <div>
@@ -27,7 +39,13 @@ function Flip({flip}){
                     :
                     <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip}></FavoriteBorder>
                 }
-                <NoteAdd id={flip.id}></NoteAdd>
+                <NoteAdd id={flip.id} onClick={toggleEdit}></NoteAdd>
+                {  editing && 
+                    <div>
+                        <input onChange={e => setComment(e.target.value)} value={comment}></input>
+                        <button onClick={submitEdit}>Submit Edit</button>
+                    </div>
+                }
             </div>}
         </div>
     )
