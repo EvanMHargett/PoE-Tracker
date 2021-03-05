@@ -40,7 +40,7 @@ export const getAllFavorites = () => async (dispatch) => {
 
 export const createFavorite = (flipId) => async (dispatch) => {
 //   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
-  const favorite = await fetch(`/api/favorites/${flipId}`, {
+  const favorite = await fetch(`/api/favorites/${flipId}/`, {
       method: "POST"
   })
   const json = await favorite.json()
@@ -50,7 +50,7 @@ export const createFavorite = (flipId) => async (dispatch) => {
 
 export const removeFavorite = (flipId) => async (dispatch) => {
 //   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
-  await fetch(`/api/favorites/${flipId}/delete`, {
+  await fetch(`/api/favorites/${flipId}/delete/`, {
       method: "POST"
   })
   dispatch(deleteFavorite(flipId))

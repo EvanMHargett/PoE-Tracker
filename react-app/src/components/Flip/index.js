@@ -24,7 +24,7 @@ function Flip({flip}){
     }
 
     function submitEdit(){
-
+        
     }
 
     return (
@@ -43,7 +43,7 @@ function Flip({flip}){
                 {  editing && 
                     <div>
                         <input onChange={e => setComment(e.target.value)} value={comment}></input>
-                        <button onClick={submitEdit}>Submit Edit</button>
+                        <button onClick={submitEdit}>Submit Comment</button>
                     </div>
                 }
             </div>}

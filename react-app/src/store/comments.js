@@ -1,9 +1,18 @@
 const GET_ALL_COMMENTS = 'comments/all'
+const SUBMIT_COMMENT = 'comments/submit'
+
 
 const fetchComments = (comments) =>{
     return {
         type: GET_ALL_COMMENTS,
         payload: comments,
+    }
+}
+
+const submitComment = (comment) =>{
+    return {
+        type: SUBMIT_COMMENT,
+        payload: comment,
     }
 }
 
@@ -13,6 +22,17 @@ export const getAllComments = () => async (dispatch) => {
   const comments = await fetch('/api/comments/')
   const json = await comments.json()
   dispatch(fetchComments(json))
+  return json
+}
+
+export const postComment = (flipId, content) => async (dispatch) => {
+//   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
+  const comments = await fetch(`/api/comments/${flipId}new/`, {
+      method: "POST",
+      body: content
+  })
+  const json = await comments.json()
+  dispatch(submitComment(json))
   return json
 }
 

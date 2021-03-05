@@ -13,3 +13,12 @@ def getAllComments():
         commentsDict[comment.id] = comment.to_dict()
 
     return commentsDict
+
+@comment_routes.route('/<int:flipId>/new', methods=["POST"])
+def getAllComments():
+    comments = Comment.query.all()
+    commentsDict = {}
+    for comment in comments:
+        commentsDict[comment.id] = comment.to_dict()
+
+    return commentsDict
