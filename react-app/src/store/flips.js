@@ -12,14 +12,12 @@ export const getAllFlips = () => async (dispatch) => {
 //   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
   const flips = await fetch('/api/flips/')
   const json = await flips.json()
-  console.log(json)
   dispatch(fetchFlips(json))
   return json
 }
 
 export const updateItemData = () => async (dispatch) =>{
     const currency = await fetch("/api/items/")
-    console.log(currency)
     return currency
 }
 

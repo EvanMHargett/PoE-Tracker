@@ -7,13 +7,12 @@ function FlipsPage(){
     const flips = useSelector(state => state.flips)
  
     const dispatch = useDispatch()
-    console.log(flips[1])
     const update = () =>{
-        dispatch(updateItemData())
+        // dispatch(updateItemData())
     }
 
     return (
-        <div>
+        <div className="table-responsive">
             <Flip flip={flips[1]}></Flip>
             <button onClick={update}>Update item data</button>
         </div>
