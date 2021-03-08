@@ -15,6 +15,7 @@ import {getAllComments} from './store/comments'
 import {getAllFavorites} from './store/favorites'
 import {addUser} from './store/session'
 
+
 function App() {
   const [authenticated, setAuthenticated] = useState(false)
   const [loaded, setLoaded] = useState(false)
