@@ -11,9 +11,22 @@ function FlipsPage(){
         // dispatch(updateItemData())
     }
 
+    let flipsArr = []
+    if(flips){
+        flipsArr =Object.entries(flips)
+    }
+
     return (
         <div className="table-responsive">
-            <Flip flip={flips[1]}></Flip>
+            { flipsArr && 
+                <div>
+                    {flipsArr.map((flip) =>
+                        <div key={flip.id}>
+                            <Flip flip={flip[1]}></Flip>
+                        </div>
+                    )}
+                </div>
+            }
             <button onClick={update}>Update item data</button>
         </div>
     )

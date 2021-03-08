@@ -6,3 +6,9 @@ class Item(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String(50), nullable = False)
   priceInC = db.Column(db.Numeric(10, 2), nullable = False)
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "name": self.name,
+    }

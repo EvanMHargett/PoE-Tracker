@@ -3,7 +3,6 @@ from flask_login import login_required, current_user
 from ..config import Config
 from app.models import Flip, Item, db
 import httplib2
-import asyncio
 import json
 
 

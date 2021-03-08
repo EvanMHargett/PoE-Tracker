@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar"
 import ProtectedRoute from "./components/auth/ProtectedRoute"
 import UsersList from "./components/UsersList"
 import User from "./components/User"
+import CreateFlip from "./components/CreateFlip"
 import { authenticate } from "./services/auth"
 import FlipsPage from './components/FlipsPage'
 import {getAllFlips} from './store/flips'
@@ -55,6 +56,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path="/flips/new" exact={true} authenticated={authenticated}>
+          <CreateFlip />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <FlipsPage></FlipsPage>

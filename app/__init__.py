@@ -12,6 +12,8 @@ from .api.flips_routes import flip_routes
 from .api.items_routes import item_routes
 from .api.favorites_routes import favorite_routes
 from .api.comments_routes import comment_routes
+from .api.search_routes import search_routes
+
 
 from .seeds import seed_commands
 
@@ -39,6 +41,7 @@ app.register_blueprint(flip_routes, url_prefix='/api/flips')
 app.register_blueprint(item_routes, url_prefix='/api/items')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(favorite_routes, url_prefix='/api/favorites')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
 
