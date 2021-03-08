@@ -9,8 +9,14 @@ const fillSearch = (search) =>{
 }
 
 export const searchName = (name) => async (dispatch) => {
-//   const sampleData = {id: 1, profit: 1, trades: 5, cost: 99, revenue: 100 }
   const search = await fetch(`/api/search/${name}`)
+  const json = await search.json()
+  dispatch(fillSearch(json))
+  return json
+}
+
+export const searchItemName = (name) => async (dispatch) => {
+  const search = await fetch(`/api/search/items/${name}`)
   const json = await search.json()
   dispatch(fillSearch(json))
   return json

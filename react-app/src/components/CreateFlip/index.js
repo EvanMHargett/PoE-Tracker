@@ -25,6 +25,7 @@ const CreateFlip = () =>{
                 <input type="number" placeholder="Input 2 Quantity" value={input2Quantity} onChange={e => {setInput2Quantity(e.target.value)}}></input>
                 <input type="number" placeholder="Output ID" value={outputId} onChange={e => {setOutputId(e.target.value)}}></input>
                 <input type="number" placeholder="Output Quantity" value={outputQuantity} onChange={e => {setOutputQuantity(e.target.value)}}></input>
+                <button type="submit">Create Flip</button>
             </form>
         </div>
     )

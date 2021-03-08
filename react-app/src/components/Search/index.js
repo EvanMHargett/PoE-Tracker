@@ -1,16 +1,21 @@
 import React from 'react'
 import {useState} from 'react'
+import {useDispatch} from 'react-redux'
+import {searchItemName} from '../../store/search'
+
 
 
 
 const Search = () =>{
+    const dispatch = useDispatch()
     const onSearchName = (e) =>{
         e.preventDefault()
+        dispatch(searchItemName(searchTerm))
     }
 
     const [searchTerm, setSearchTerm] = useState('')
 
-    
+
     return (
         <form onSubmit={onSearchName}>
             <div>
