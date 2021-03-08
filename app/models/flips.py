@@ -20,10 +20,21 @@ class Flip(db.Model):
   output = db.relationship("Item", foreign_keys=[outputId])
 
   def to_dict(self):
-      return {
-          "id": self.id,
-          "cost": self.cost,
-          "trades": self.trades,
-          "revenue": self.revenue,
-          "profit": self.profit,
-      }
+    flipDict = {
+        "id": self.id,
+        "cost": self.cost,
+        "trades": self.trades,
+        "revenue": self.revenue,
+        "profit": self.profit,
+        "input1Name": self.input1.name,
+        "input1Quantity": self.input1Quantity,
+        "outputName": self.output.name,
+        "outputQuantity": self.outputQuantity,
+    }
+    if self.input2:
+        flipDict["input2Name"] = self.input2.name 
+        flipDict["input2Quantity"] = self.input2Quantity    
+    else:
+        flipDict["input2Name"] = ""
+        flipDict["input2Quantity"] = ""   
+    return flipDict
