@@ -10,13 +10,27 @@ const CreateFlip = () =>{
     const [input2Quantity, setInput2Quantity] = useState('')
     const [outputId, setOutputId] = useState('')
     const [outputQuantity, setOutputQuantity] = useState('')
+    let searchArr = []
+    if(search){
+        searchArr =Object.entries(search)
+    }
+
     const makeFlip = (e) =>{
         e.preventDefault()
     }
+
     return (
         <div>
             <div className="searchHolder">
                 <Search></Search>
+                {   searchArr && 
+                     <div> 
+                        {   searchArr.map((item) => 
+                            <div key={item[0]}> Item Name: {item[1].name} Item ID: {item[0]}</div>
+                            )
+                        }
+                    </div>
+                }
             </div>
             <form onSubmit={makeFlip}>
                 <input type="number" placeholder="Input 1 ID" value={input1Id} onChange={e => {setInput1Id(e.target.value)}}></input>

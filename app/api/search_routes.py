@@ -17,9 +17,7 @@ def getFlipsByName(name):
 
 @search_routes.route('/items/<string:name>/')
 def getItemsByName(name):
-    print("name is ", name)
     items = Item.query.filter(Item.name.ilike(f'%{name}%')).all()
-    print("Items here --------------", items)
     itemsDict = {}
     for item in items:
         itemsDict[item.id] = item.to_dict()
