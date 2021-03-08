@@ -1,14 +1,16 @@
 import React from 'react'
 import {useState} from 'react'
 
-const onSearchName = (e) =>{
-    e.preventDefault()
 
-}
-
-const [searchTerm, setSearchTerm] = useState('')
 
 const Search = () =>{
+    const onSearchName = (e) =>{
+        e.preventDefault()
+    }
+
+    const [searchTerm, setSearchTerm] = useState('')
+
+    
     return (
         <form onSubmit={onSearchName}>
             <div>
