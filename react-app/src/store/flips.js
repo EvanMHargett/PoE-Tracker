@@ -21,6 +21,16 @@ export const updateItemData = () => async (dispatch) =>{
     return currency
 }
 
+export const createFlip = (flip) => async (dispatch) =>{
+    const flipFromBackend = await fetch("/api/flips/", {
+        method: "POST",
+        body: JSON.stringify(flip)
+    })
+    // const json = await flip.json()
+    dispatch(getAllFlips())
+    return "testing"
+}
+
 const initialState = {}
 
 const flipsReducer = (state = initialState, action) => {

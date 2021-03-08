@@ -1,15 +1,21 @@
 import React, {useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import Search from '../Search'
+import {createFlip} from '../../store/flips'
+
 
 const CreateFlip = () =>{
     const search = useSelector(state => state.search)
+
     const [input1Id, setInput1Id] = useState('')
     const [input1Quantity, setInput1Quantity] = useState('')
     const [input2Id, setInput2Id] = useState('')
     const [input2Quantity, setInput2Quantity] = useState('')
     const [outputId, setOutputId] = useState('')
     const [outputQuantity, setOutputQuantity] = useState('')
+
+    const dispatch = useDispatch()
+
     let searchArr = []
     if(search){
         searchArr =Object.entries(search)
@@ -17,6 +23,15 @@ const CreateFlip = () =>{
 
     const makeFlip = (e) =>{
         e.preventDefault()
+        dispatch(createFlip({
+            "input1Id": input1Id,
+            "input2Id": input2Id,
+            "outputId": outputId,
+            "input1Quantity": input1Quantity,
+            "input2Quantity": input2Quantity,
+            "outputQuantity": outputQuantity,
+        }))
+    
     }
 
     return (
