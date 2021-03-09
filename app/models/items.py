@@ -11,4 +11,5 @@ class Item(db.Model):
     return {
       "id": self.id,
       "name": self.name,
+      "priceInC": int(self.priceInC)
     }

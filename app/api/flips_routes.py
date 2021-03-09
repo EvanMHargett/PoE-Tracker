@@ -24,6 +24,9 @@ def createFlip():
     print("decoded ", decoded)
     jsonObj = json.loads(decoded)
     print("JSON OBJ ", jsonObj)
+    input1 = Item.query.filter_by(id=jsonObj["input1Id"]).first()
+    output = Item.query.filter_by(id=jsonObj["outputId"]).first()
+
     flip = Flip(
         input1Id=jsonObj["input1Id"],
         input1Quantity=jsonObj["input1Quantity"],
@@ -31,10 +34,10 @@ def createFlip():
         # input2Quantity=jsonObj.input2Quantity,
         outputId=jsonObj["outputId"],
         outputQuantity=jsonObj["outputQuantity"],
-        trades=1,
-        cost=1,
-        revenue=1,
-        profit=1,
+        trades=int(jsonObj["input1Quantity"])+ 1,
+        cost=input1.priceInC * int(jsonObj["input1Quantity"]),
+        revenue=output.priceInC * int(jsonObj["outputQuantity"]),
+        profit= output.priceInC * int(jsonObj["outputQuantity"]) - (input1.priceInC * int(jsonObj["input1Quantity"])),
     )
     db.session.add(flip)
     db.session.commit()
