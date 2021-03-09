@@ -17,7 +17,7 @@ function FlipsPage(){
     }
 
     return (
-        <div className="table-responsive">
+        <div className="page-container">
             { flipsArr && 
                 <div>
                     {flipsArr.map((flip) =>

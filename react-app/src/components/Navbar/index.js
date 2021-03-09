@@ -2,16 +2,17 @@ import React from 'react';
 import './NavBar.css';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import LogoutButton from '../auth/LogoutButton';
 
 const NavBar = ({ setAuthenticated }) => {
 
-  const history = useHistory();
-  const dispatch = useDispatch();
+  const history = useHistory()
+  const dispatch = useDispatch()
 
   const user = useSelector(state => state.session.user)
 
   const onSearch = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     history.push('/search-results')
   }
 
@@ -31,16 +32,24 @@ const NavBar = ({ setAuthenticated }) => {
               Home
             </NavLink>
           </div>
-          <div className='icons-container'>
-            <NavLink to="/login" exact={true} activeClassName="active">
-              Login
-            </NavLink>
-          </div>
-          <div className='icons-container'>
-            <NavLink to="/sign-up" exact={true} activeClassName="active">
-              Sign Up
-            </NavLink>
-          </div>
+          {!user && 
+            <div className='icons-container'>
+                <NavLink to="/login" exact={true} activeClassName="active">
+                Login
+                </NavLink>
+            </div>
+          
+          }
+          {!user && 
+            <div className='icons-container'>
+                <NavLink to="/sign-up" exact={true} activeClassName="active">
+                Sign Up
+                </NavLink>
+            </div>
+          }
+          {user && 
+            <LogoutButton setAuthenticated={setAuthenticated}></LogoutButton>
+          }
         </div>
       </div>
     </nav>
