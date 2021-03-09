@@ -1,4 +1,5 @@
 import React from 'react';
+import './NavBar.css';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 

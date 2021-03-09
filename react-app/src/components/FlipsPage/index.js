@@ -21,7 +21,7 @@ function FlipsPage(){
             { flipsArr && 
                 <div>
                     {flipsArr.map((flip) =>
-                        <div key={flip.id}>
+                        <div key={flip[1].id}>
                             <Flip flip={flip[1]}></Flip>
                         </div>
                     )}
