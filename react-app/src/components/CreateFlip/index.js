@@ -35,7 +35,7 @@ const CreateFlip = () =>{
     }
 
     return (
-        <div>
+        <div className="page-container">
             <div className="searchHolder">
                 <Search></Search>
                 {   searchArr && 

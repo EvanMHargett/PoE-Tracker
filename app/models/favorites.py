@@ -9,7 +9,7 @@ class Favorite(db.Model):
 
   def to_dict(self):
       return {
-          "id": self.id,
-          "flipId": self.flipId,
+          "id": self.flipId,
+          "favoriteId": self.flipId,
           "userId": self.userId,
       }

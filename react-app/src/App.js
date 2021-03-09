@@ -6,6 +6,7 @@ import SignUpForm from "./components/auth/SignUpForm"
 import NavBar from "./components/NavBar"
 import ProtectedRoute from "./components/auth/ProtectedRoute"
 import UsersList from "./components/UsersList"
+import FavoritesPage from "./components/FavoritesPage"
 import User from "./components/User"
 import CreateFlip from "./components/CreateFlip"
 import { authenticate } from "./services/auth"
@@ -60,6 +61,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/flips/new" exact={true} authenticated={authenticated}>
           <CreateFlip />
+        </ProtectedRoute>
+        <ProtectedRoute path="/favorites" exact={true} authenticated={authenticated}>
+          <FavoritesPage />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <FlipsPage></FlipsPage>

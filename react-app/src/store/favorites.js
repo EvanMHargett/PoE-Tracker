@@ -81,7 +81,7 @@ const favoritesReducer = (state = initialState, action) => {
       return newState;
     case ADD_FAVORITE:
       newState = Object.assign({}, state);
-      newState[action.payload.flipId] = action.payload
+      newState[action.payload.id] = action.payload
       return newState
     case DELETE_FAVORITE:
       newState = Object.assign({}, state);
