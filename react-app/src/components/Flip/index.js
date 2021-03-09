@@ -40,6 +40,10 @@ function Flip({flip}){
     return (
         <div className="container-fluid">
             {flip && <div>
+                <span>Input 1: {flip.input1Name}  </span>
+                <span>Quantity 1: {flip.input1Quantity}  </span>
+                <span>Output 1: {flip.outputName}   </span>
+                <span>Output Quantity: {flip.outputQuantity}   </span>
                 <span>Total Cost: {flip.cost}  </span> 
                 <span>Total Revenue: {flip.revenue}  </span>
                 <span>Profit: {flip.profit}  </span>
