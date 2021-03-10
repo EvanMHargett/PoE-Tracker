@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import Search from '../Search'
 import {createFlip} from '../../store/flips'
 
 
 const CreateFlip = () =>{
     const search = useSelector(state => state.search)
+
+    const history = useHistory()
 
     const [input1Id, setInput1Id] = useState('')
     const [input1Quantity, setInput1Quantity] = useState('')
@@ -31,7 +34,8 @@ const CreateFlip = () =>{
             "input2Quantity": input2Quantity,
             "outputQuantity": outputQuantity,
         }))
-    
+        history.push('/')
+        
     }
 
     return (

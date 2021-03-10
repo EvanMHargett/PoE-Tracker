@@ -32,6 +32,11 @@ const NavBar = ({ setAuthenticated }) => {
               Home
             </NavLink>
           </div>
+          <div className='icons-container'>
+            <NavLink to="/flips/new" exact={true} activeClassName="active">
+              Create New Flip
+            </NavLink>
+          </div>
           {!user && 
             <div className='icons-container'>
                 <NavLink to="/login" exact={true} activeClassName="active">

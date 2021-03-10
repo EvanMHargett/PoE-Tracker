@@ -26,7 +26,7 @@ const deleteFavorite = (flipId) =>{
 
 const resetFavorite = () =>{
     return {
-        type: resetFavorites,
+        type: RESET,
     }
 }
 

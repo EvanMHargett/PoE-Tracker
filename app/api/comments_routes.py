@@ -7,7 +7,7 @@ comment_routes = Blueprint('comments', __name__)
 
 @comment_routes.route('/')
 def getAllComments():
-    comments = Comment.query.all()
+    comments = Comment.query.filter(Comment.userId==current_user.id).all()
     commentsDict = {}
     for comment in comments:
         commentsDict[comment.flipId] = comment.to_dict()
