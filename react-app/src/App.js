@@ -66,7 +66,7 @@ function App() {
           <FavoritesPage />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <FlipsPage></FlipsPage>
+          <FlipsPage/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../services/auth";
 import { getAllComments } from "../../store/comments";
 import { getAllFavorites } from "../../store/favorites";
+import { getAllFlips } from "../../store/flips";
 import { addUser } from "../../store/session";
 import {useDispatch} from 'react-redux'
 
@@ -20,6 +21,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
       setAuthenticated(true);
       dispatch(addUser(user))
       dispatch(getAllComments())
+      dispatch(getAllFlips())
       dispatch(getAllFavorites())
     } else {
       setErrors(user.errors);

@@ -7,6 +7,7 @@ function FlipsPage(){
     const flips = useSelector(state => state.flips)
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
+
     const update = () =>{
         dispatch(updateItemData())
     }
