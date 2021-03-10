@@ -29,7 +29,7 @@ function FlipsPage(){
             }
             {user&& 
                 <div>
-                    {user.email == "admin@aa.io" && 
+                    {user.email === "admin@aa.io" && 
                         <button onClick={update}>Update item data</button>
                     }
                 </div>

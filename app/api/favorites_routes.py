@@ -8,7 +8,6 @@ favorite_routes = Blueprint('favorites', __name__)
 @favorite_routes.route('/')
 def getAllFavorites():
     favorites = Favorite.query.filter(Favorite.userId == current_user.id).all()
-    # print("---------------------------------", favorites)
     favoritesDict = {}
     for favorite in favorites:
         favoritesDict[favorite.flipId] = favorite.to_dict()

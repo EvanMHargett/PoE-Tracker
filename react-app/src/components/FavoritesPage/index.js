@@ -1,7 +1,7 @@
 import React from 'react'
 import Flip from '../Flip'
-import {useSelector, useDispatch} from 'react-redux'
-import { updateItemData } from '../../store/flips'
+import {useSelector} from 'react-redux'
+
 
 function FlipsPage(){
     const favorites = useSelector(state => state.favorites)

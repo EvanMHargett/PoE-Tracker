@@ -22,7 +22,7 @@ export const updateItemData = () => async (dispatch) =>{
 }
 
 export const createFlip = (flip) => async (dispatch) =>{
-    const flipFromBackend = await fetch("/api/flips/", {
+    await fetch("/api/flips/", {
         method: "POST",
         body: JSON.stringify(flip)
     })

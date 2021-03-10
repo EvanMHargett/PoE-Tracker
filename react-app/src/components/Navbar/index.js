@@ -16,7 +16,7 @@ const NavBar = ({ setAuthenticated }) => {
     history.push('/search-results')
   }
 
-  const iconStyles = { fontSize: '30px', color: 'rgb(38, 38, 38)' }
+//   const iconStyles = { fontSize: '30px', color: 'rgb(38, 38, 38)' }
 
   return (user &&
     <nav>

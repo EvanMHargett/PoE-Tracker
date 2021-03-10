@@ -18,12 +18,9 @@ def getAllFlips():
 
 @flip_routes.route('/', methods=["POST"])
 def createFlip():
-    print("dir request", request.get_data())
     flipInfo = request.get_data()
     decoded = flipInfo.decode('ascii')
-    print("decoded ", decoded)
     jsonObj = json.loads(decoded)
-    print("JSON OBJ ", jsonObj)
     input1 = Item.query.filter_by(id=jsonObj["input1Id"]).first()
     output = Item.query.filter_by(id=jsonObj["outputId"]).first()
 

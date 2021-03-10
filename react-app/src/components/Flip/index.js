@@ -12,7 +12,6 @@ function Flip({flip}){
     const comments = useSelector((state) => state.comments)
     const [editing, setEditing] = useState(false)
     const [comment, setComment] = useState("")
-    console.log(flip)
 
     function toggleFavoriteFlip(){
         if(favorites[flip.id]){
