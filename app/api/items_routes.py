@@ -134,7 +134,6 @@ def getAllItems():
             revenue=output.priceInC * int(flip["outputQuantity"]),
             profit= output.priceInC * int(flip["outputQuantity"]) - (input1.priceInC * int(flip["input1Quantity"])),
         )
-        print("after changes", newFlip.to_dict())
         db.session.add(newFlip)
         db.session.commit()
 
