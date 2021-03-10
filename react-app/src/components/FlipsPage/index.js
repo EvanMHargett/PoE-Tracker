@@ -5,10 +5,10 @@ import { updateItemData } from '../../store/flips'
 
 function FlipsPage(){
     const flips = useSelector(state => state.flips)
- 
+    const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const update = () =>{
-        // dispatch(updateItemData())
+        dispatch(updateItemData())
     }
 
     let flipsArr = []
@@ -27,7 +27,9 @@ function FlipsPage(){
                     )}
                 </div>
             }
-            <button onClick={update}>Update item data</button>
+            {user.id == 2 && 
+                <button onClick={update}>Update item data</button>
+            }
         </div>
     )
 }

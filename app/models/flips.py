@@ -26,8 +26,10 @@ class Flip(db.Model):
         "trades": self.trades,
         "revenue": self.revenue,
         "profit": self.profit,
+        "input1Id": self.input1Id,
         "input1Name": self.input1.name,
         "input1Quantity": self.input1Quantity,
+        "outputId": self.outputId,
         "outputName": self.output.name,
         "outputQuantity": self.outputQuantity,
     }

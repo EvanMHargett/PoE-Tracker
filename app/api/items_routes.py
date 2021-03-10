@@ -13,6 +13,11 @@ item_routes = Blueprint('items', __name__)
 
 @item_routes.route('/')
 def getAllItems():
+    flips = Flip.query.all()
+    flipsCopy = []
+    for flip in flips:
+        flipDict = flip.to_dict()
+        flipsCopy.append(flipDict)
     db.session.execute('TRUNCATE items CASCADE;')
     db.session.execute("ALTER SEQUENCE items_id_seq RESTART WITH 1")
     resp, content = httplib2.Http().request("https://poe.ninja/api/data/currencyoverview?league=Ritual&type=Currency")
@@ -110,6 +115,29 @@ def getAllItems():
         db.session.add(newItem)
 
     db.session.commit()
+
+    
+    for flip in flipsCopy:
+        print("before changes", flip)
+        input1 = Item.query.filter_by(name=flip["input1Name"]).first()
+        output = Item.query.filter_by(name=flip["outputName"]).first()
+        print("relevant items", input1.to_dict(), output.to_dict())
+        newFlip = Flip(
+            input1Id=flip["input1Id"],
+            input1Quantity=flip["input1Quantity"],
+            # input2Id=flip.input2Id,
+            # input2Quantity=flip.input2Quantity,
+            outputId=flip["outputId"],
+            outputQuantity=flip["outputQuantity"],
+            trades=int(flip["input1Quantity"])+ 1,
+            cost=input1.priceInC * int(flip["input1Quantity"]),
+            revenue=output.priceInC * int(flip["outputQuantity"]),
+            profit= output.priceInC * int(flip["outputQuantity"]) - (input1.priceInC * int(flip["input1Quantity"])),
+        )
+        print("after changes", newFlip.to_dict())
+        db.session.add(newFlip)
+        db.session.commit()
+
     return content
     # req = urllib.request.Request(url = 'https://poe.ninja/api/data/currencyoverview?league=Ritual&type=Currency')
     # with urllib.request.urlopen(req) as response:
