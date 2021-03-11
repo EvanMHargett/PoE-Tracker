@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from ..config import Config
-from app.models import Flip, Item, db
+from app.models import Flip, Item, db, Comment, Favorite
 import httplib2
 import json
 
@@ -18,6 +18,18 @@ def getAllItems():
     for flip in flips:
         flipDict = flip.to_dict()
         flipsCopy.append(flipDict)
+
+    favorites = Favorite.query.all()
+    favoritesCopy = []
+    for favorite in favorites:
+        favoritesCopy.append(favorite.to_dict())
+
+    comments = Comment.query.all()
+    commentsCopy = []
+    for comment in comments:
+        commentsCopy.append(comment.to_dict())
+
+    
     db.session.execute('TRUNCATE items CASCADE;')
     db.session.execute("ALTER SEQUENCE items_id_seq RESTART WITH 1")
     resp, content = httplib2.Http().request("https://poe.ninja/api/data/currencyoverview?league=Ritual&type=Currency")
@@ -102,10 +114,9 @@ def getAllItems():
 
     
     for flip in flipsCopy:
-        print("before changes", flip)
+    
         input1 = Item.query.filter_by(name=flip["input1Name"]).first()
         output = Item.query.filter_by(name=flip["outputName"]).first()
-        print("relevant items", input1.to_dict(), output.to_dict())
         newFlip = Flip(
             input1Id=flip["input1Id"],
             input1Quantity=flip["input1Quantity"],
@@ -118,7 +129,25 @@ def getAllItems():
             revenue=output.priceInC * int(flip["outputQuantity"]),
             profit= output.priceInC * int(flip["outputQuantity"]) - (input1.priceInC * int(flip["input1Quantity"])),
         )
+
         db.session.add(newFlip)
         db.session.commit()
+        for favorite in favoritesCopy:
+            if flip["id"] == favorite["id"]:
+                newFavorite = Favorite(
+                    userId=favorite["userId"],
+                    flipId=newFlip.id
+                )
+                db.session.add(newFavorite)
+        
+        for comment in commentsCopy:
+            if flip["id"] == comment["flipId"]:
+                newComment = Comment(
+                    userId=comment["userId"],
+                    flipId=newFlip.id,
+                    content=comment["content"]
+                )
+                db.session.add(newComment)
 
+    db.session.commit()
     return content
