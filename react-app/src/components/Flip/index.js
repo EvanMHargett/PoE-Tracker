@@ -37,7 +37,7 @@ function Flip({flip}){
     }
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid flip-container">
             {flip && <div>
                 <span>Input 1: {flip.input1Name}  </span>
                 <span>Quantity 1: {flip.input1Quantity}  </span>
