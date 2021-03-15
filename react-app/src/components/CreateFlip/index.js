@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import Search from '../Search'
 import {createFlip} from '../../store/flips'
+import "./CreateFlip.css"
 
 
 const CreateFlip = () =>{
@@ -39,11 +40,11 @@ const CreateFlip = () =>{
     }
 
     return (
-        <div className="page-container">
+        <div className="page-container create-container">
             <div className="searchHolder">
                 <Search></Search>
                 {   searchArr && 
-                     <div> 
+                     <div className="searchArr"> 
                         {   searchArr.map((item) => 
                             <div key={item[0]}> Item Name: {item[1].name} Item ID: {item[0]}</div>
                             )
@@ -51,7 +52,7 @@ const CreateFlip = () =>{
                     </div>
                 }
             </div>
-            <form onSubmit={makeFlip}>
+            <form onSubmit={makeFlip} className="flipForm">
                 <input type="number" placeholder="Input 1 ID" value={input1Id} onChange={e => {setInput1Id(e.target.value)}}></input>
                 <input type="number" placeholder="Input 1 Quantity" value={input1Quantity} onChange={e => {setInput1Quantity(e.target.value)}}></input>
                 <input type="number" placeholder="Input 2 ID" value={input2Id} onChange={e => {setInput2Id(e.target.value)}}></input>

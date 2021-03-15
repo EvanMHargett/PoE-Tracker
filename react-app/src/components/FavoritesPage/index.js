@@ -20,10 +20,11 @@ function FavoritesPage(){
                     <div className="col-md-1">Quantity  </div>
                     <div className="col-md-2">Output  </div>
                     <div className="col-md-1">Quantity  </div>
-                    <div className="col-md-2">Cost </div>
-                    <div className="col-md-2">Revenue </div>
+                    <div className="col-md-1">Cost </div>
+                    <div className="col-md-1">Revenue </div>
                     <div className="col-md-1">Trades</div>
-                    <div className="col-md-1">Profit</div> 
+                    <div className="col-md-1">Profit</div>
+                    <div className="col-md-1">Comments</div> 
                 </div>    
             </div>
             { favoritesArr && 

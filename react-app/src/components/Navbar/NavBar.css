@@ -1,11 +1,12 @@
 nav {
-    background: white;
+    background: rgb(60,60,60);
     width: 100vw;
     box-sizing: border-box;
     top: 0;
     position: fixed;
     border-bottom: 1px solid rgb(219, 219, 219) ;
     z-index: 100;
+    
 }
 
 .menu {
@@ -49,7 +50,7 @@ input:focus {
     height: 20px;
     width: 20px;
     content: 'X';
-    color: black;
+    color: whitesmoke;
 }
 
 
@@ -135,4 +136,8 @@ input:focus {
     right: 10vw;
     top: 55px;
     min-width: 220px;
+}
+
+.link{
+    color: whitesmoke !important;
 }
