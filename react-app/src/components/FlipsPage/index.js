@@ -22,15 +22,15 @@ function FlipsPage(){
         <div className="page-container">
 
             <div className="headers container">
-                <div className="row">
-                    <div className="col-2">Input 1  </div>
-                    <div className="col-1">Input s1 Quantity  </div>
-                    <div className="col-2">Output  </div>
-                    <div className="col-1">Output Quantity  </div>
-                    <div className="col-2">Cost </div>
-                    <div className="col-2">Revenue </div>
-                    <div className="col-1">Trades Required</div>
-                    <div className="col-1">Profit</div>
+                <div className="row header-row">
+                    <div className="col-md-2">Input 1  </div>
+                    <div className="col-md-1">Quantity  </div>
+                    <div className="col-md-2">Output  </div>
+                    <div className="col-md-1">Quantity  </div>
+                    <div className="col-md-2">Cost </div>
+                    <div className="col-md-2">Revenue </div>
+                    <div className="col-md-1">Trades</div>
+                    <div className="col-md-1">Profit</div> 
                 </div>
                     
             </div>

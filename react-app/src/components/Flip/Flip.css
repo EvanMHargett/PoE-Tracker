@@ -1,6 +1,8 @@
 .flip-container{
     color: whitesmoke;
     border: 1px solid rgb(83,83,83);
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .flip-container.lighter {
@@ -9,4 +11,8 @@
 
 .flip-container.darker {
     background-color: rgb(20,20,20);
+}
+
+.flip-row{
+    width: 100%;
 }

@@ -45,33 +45,35 @@ function Flip({flip, color}){
 
     return (
         <div className={`container flip-container ${colorName}`}>
-            {flip && <div>
-                <span>Input 1: {flip.input1Name}  </span>
-                <span>Quantity 1: {flip.input1Quantity}  </span>
-                <span>Output 1: {flip.outputName}   </span>
-                <span>Output Quantity: {flip.outputQuantity}   </span>
-                <span>Total Cost: {flip.cost}  </span> 
-                <span>Total Revenue: {flip.revenue}  </span>
-                <span>Profit: {flip.profit}  </span>
-                <span>Trades Required: {flip.trades}  </span>
-                { favorites[flip.id] ?
-                    <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip} style={{ color: 'red' }}></FavoriteBorder>
-                    :
-                    <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip}></FavoriteBorder>
-                }
-                { comments[flip.id] &&
-                    <div>
-                        <div>{comments[flip.id].content}</div>
-                        <DeleteIcon onClick={deleteFlipComment}></DeleteIcon>
-                    </div>
-                }
-                <NoteAdd id={flip.id} onClick={toggleEdit}></NoteAdd>
-                {  editing && 
-                    <div>
-                        <input onChange={e => setComment(e.target.value)} value={comment} ></input>
-                        <button onClick={submitEdit}>Submit Comment</button>
-                    </div>
-                }
+            {flip && <div className="row flip-row">
+                <div className="col-md-2">{flip.input1Name}</div>
+                <div className="col-md-1">{flip.input1Quantity}</div>
+                <div className="col-md-2">{flip.outputName}</div>
+                <div className="col-md-1">{flip.outputQuantity}</div>
+                <div className="col-md-2">{flip.cost}</div>
+                <div className="col-md-2">{flip.revenue}</div>
+                <div className="col-md-1">{flip.trades}</div>
+                <div className="col-md-1">{flip.profit}</div> 
+                <div className="favorites-and-comments">
+                    { favorites[flip.id] ?
+                        <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip} style={{ color: 'red' }}></FavoriteBorder>
+                        :
+                        <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip}></FavoriteBorder>
+                    }
+                    { comments[flip.id] &&
+                        <div>
+                            <div>{comments[flip.id].content}</div>
+                            <DeleteIcon onClick={deleteFlipComment}></DeleteIcon>
+                        </div>
+                    }
+                    <NoteAdd id={flip.id} onClick={toggleEdit}></NoteAdd>
+                    {  editing && 
+                        <div>
+                            <input onChange={e => setComment(e.target.value)} value={comment} ></input>
+                            <button onClick={submitEdit}>Submit Comment</button>
+                        </div>
+                    }
+                </div>
             </div>}
         </div>
     )
