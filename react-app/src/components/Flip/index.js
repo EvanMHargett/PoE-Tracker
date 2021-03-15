@@ -50,29 +50,30 @@ function Flip({flip, color}){
                 <div className="col-md-1">{flip.input1Quantity}</div>
                 <div className="col-md-2">{flip.outputName}</div>
                 <div className="col-md-1">{flip.outputQuantity}</div>
-                <div className="col-md-2">{flip.cost}</div>
-                <div className="col-md-2">{flip.revenue}</div>
+                <div className="col-md-1">{flip.cost}</div>
+                <div className="col-md-1">{flip.revenue}</div>
                 <div className="col-md-1">{flip.trades}</div>
                 <div className="col-md-1">{flip.profit}</div> 
-                <div className="favorites-and-comments">
+                <div className="col-md-2">
                     { favorites[flip.id] ?
                         <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip} style={{ color: 'red' }}></FavoriteBorder>
                         :
                         <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip}></FavoriteBorder>
                     }
-                    { comments[flip.id] &&
-                        <div>
-                            <div>{comments[flip.id].content}</div>
-                            <DeleteIcon onClick={deleteFlipComment}></DeleteIcon>
-                        </div>
-                    }
-                    <NoteAdd id={flip.id} onClick={toggleEdit}></NoteAdd>
+                     <NoteAdd id={flip.id} onClick={toggleEdit}></NoteAdd>
                     {  editing && 
                         <div>
-                            <input onChange={e => setComment(e.target.value)} value={comment} ></input>
-                            <button onClick={submitEdit}>Submit Comment</button>
+                            <input className="comment-input" onChange={e => setComment(e.target.value)} value={comment} ></input>
+                            <button className="comment-button" onClick={submitEdit}>Submit Comment</button>
                         </div>
                     }
+                    { comments[flip.id] &&
+                        <div>
+                            <DeleteIcon onClick={deleteFlipComment}></DeleteIcon>
+                            <div>{comments[flip.id].content}</div>
+                        </div>
+                    }
+                   
                 </div>
             </div>}
         </div>

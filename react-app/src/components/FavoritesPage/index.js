@@ -3,7 +3,7 @@ import Flip from '../Flip'
 import {useSelector} from 'react-redux'
 
 
-function FlipsPage(){
+function FavoritesPage(){
     const favorites = useSelector(state => state.favorites)
     const flips = useSelector(state => state.flips)
 
@@ -14,11 +14,23 @@ function FlipsPage(){
 
     return (
         <div className="page-container">
+            <div className="headers container">
+                <div className="row header-row">
+                    <div className="col-md-2">Input 1  </div>
+                    <div className="col-md-1">Quantity  </div>
+                    <div className="col-md-2">Output  </div>
+                    <div className="col-md-1">Quantity  </div>
+                    <div className="col-md-2">Cost </div>
+                    <div className="col-md-2">Revenue </div>
+                    <div className="col-md-1">Trades</div>
+                    <div className="col-md-1">Profit</div> 
+                </div>    
+            </div>
             { favoritesArr && 
                 <div>
-                    {favoritesArr.map((flip) =>
+                    {favoritesArr.map((flip, idx) =>
                         <div key={flip[1].id}>
-                            <Flip flip={flips[flip[1].id]}></Flip>
+                            <Flip flip={flips[flip[1].id]} color={idx % 2}></Flip>
                         </div>
                     )}
                 </div>
@@ -27,4 +39,4 @@ function FlipsPage(){
     )
 }
 
-export default FlipsPage
+export default FavoritesPage
