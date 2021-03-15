@@ -1,5 +1,6 @@
 import React from 'react'
 import Flip from '../Flip'
+import './FlipsPage.css'
 import {useSelector, useDispatch} from 'react-redux'
 import { updateItemData } from '../../store/flips'
 
@@ -19,11 +20,25 @@ function FlipsPage(){
 
     return (
         <div className="page-container">
+
+            <div className="headers container">
+                <div className="row">
+                    <div className="col-2">Input 1  </div>
+                    <div className="col-1">Input s1 Quantity  </div>
+                    <div className="col-2">Output  </div>
+                    <div className="col-1">Output Quantity  </div>
+                    <div className="col-2">Cost </div>
+                    <div className="col-2">Revenue </div>
+                    <div className="col-1">Trades Required</div>
+                    <div className="col-1">Profit</div>
+                </div>
+                    
+            </div>
             { flipsArr && 
                 <div>
-                    {flipsArr.map((flip) =>
+                    {flipsArr.map((flip, idx) =>
                         <div key={flip[1].id}>
-                            <Flip flip={flip[1]}></Flip>
+                            <Flip flip={flip[1]} color={idx % 2}></Flip>
                         </div>
                     )}
                 </div>

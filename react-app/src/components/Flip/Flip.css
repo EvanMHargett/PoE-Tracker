@@ -1,4 +1,12 @@
 .flip-container{
-    background-color: gray;
     color: whitesmoke;
+    border: 1px solid rgb(83,83,83);
+}
+
+.flip-container.lighter {
+    background-color: gray;
+}
+
+.flip-container.darker {
+    background-color: rgb(20,20,20);
 }

@@ -6,7 +6,7 @@ import {createFavorite, removeFavorite} from '../../store/favorites'
 import {postComment, deleteComment} from '../../store/comments'
 import {useDispatch, useSelector} from 'react-redux'
 
-function Flip({flip}){
+function Flip({flip, color}){
     const dispatch = useDispatch()
     const favorites = useSelector((state) => state.favorites)
     const comments = useSelector((state) => state.comments)
@@ -35,9 +35,16 @@ function Flip({flip}){
     function deleteFlipComment(){
         dispatch(deleteComment(flip.id))
     }
+    let colorName
+    if(color){
+        colorName="darker"
+    }
+    else{
+        colorName="lighter"
+    }
 
     return (
-        <div className="container-fluid flip-container">
+        <div className={`container flip-container ${colorName}`}>
             {flip && <div>
                 <span>Input 1: {flip.input1Name}  </span>
                 <span>Quantity 1: {flip.input1Quantity}  </span>

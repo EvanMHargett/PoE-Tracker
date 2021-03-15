@@ -9,6 +9,7 @@ body {
   margin: 0;
   background-color: rgb(23, 38, 47);
   overflow-x: hidden;
+  background-image: url('/Echoes_04.png');
 }
 
 * {
