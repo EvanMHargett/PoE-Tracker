@@ -9,10 +9,12 @@ search_routes = Blueprint('search', __name__)
 
 @search_routes.route('/<string:name>/')
 def getFlipsByName(name):
-    flips = Flip.query.filter(Flip.input1.name.ilike(f'%{name}%') | Flip.input2.name.ilike(f'%{name}%') | Flip.output.name.ilike(f'%{name}%'))
+    flips = Flip.query.all()
+    # flips = Flip.query.filter(Flip.input1.name.ilike(f'%{name}%') | Flip.output.name.ilike(f'%{name}%')).all()
     flipsDict = {}
     for flip in flips:
-        flipsDict[flip.id] = flip.to_dict()
+        if name.lower() in flip.input1.name.lower() or name.lower() in flip.output.name.lower():
+            flipsDict[flip.id] = flip.to_dict()
     return flipsDict
 
 @search_routes.route('/items/<string:name>/')

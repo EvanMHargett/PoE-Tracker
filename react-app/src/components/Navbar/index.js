@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './NavBar.css';
+import {searchName} from '../../store/search'
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
@@ -8,11 +9,13 @@ const NavBar = ({ setAuthenticated }) => {
 
   const history = useHistory()
   const dispatch = useDispatch()
+  const [searchTerm, setSearchTerm] = useState("")
 
   const user = useSelector(state => state.session.user)
 
-  const onSearch = async (e) => {
+  const searchFlips = async (e) => {
     e.preventDefault()
+    dispatch(searchName(searchTerm))
     history.push('/search-results')
   }
 
@@ -25,6 +28,11 @@ const NavBar = ({ setAuthenticated }) => {
           <NavLink  to="/" exact={true} activeClassName="active" className="link">
             <div>PoE Tracker</div>
           </NavLink>
+        </div>
+        <div className='search'>
+          <form onSubmit={searchFlips}>
+            <input type="text" placeholder="Search for flips" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+          </form>
         </div>
         <div className='user-buttons'>
           <div className='icons-container'>

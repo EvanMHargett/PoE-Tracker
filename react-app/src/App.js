@@ -15,6 +15,7 @@ import {getAllFlips} from './store/flips'
 import {getAllComments} from './store/comments'
 import {getAllFavorites} from './store/favorites'
 import {addUser} from './store/session'
+import SearchResults from "./components/SearchResults"
 
 
 function App() {
@@ -64,6 +65,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/favorites" exact={true} authenticated={authenticated}>
           <FavoritesPage />
+        </ProtectedRoute>
+        <ProtectedRoute path="/search-results" exact={true} authenticated={authenticated}>
+          <SearchResults />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <FlipsPage/>
