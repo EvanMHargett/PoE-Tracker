@@ -7,3 +7,14 @@
 .header-row{
     width: 100%;
 }
+
+.radio-container{
+    background-color:rgb(60,60,60);
+}
+
+.radio-container>label{
+
+    color: whitesmoke;
+    font-weight: normal;
+
+}

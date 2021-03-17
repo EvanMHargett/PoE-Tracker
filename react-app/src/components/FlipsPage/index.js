@@ -68,8 +68,8 @@ function FlipsPage(){
                     }
                 </div>
             }
-            <div>
-                <input onChange={event => setSortingType(event.target.value)} name="sortSelector" id="profit" value="profit" type="radio" />
+            <div className="radio-container">
+                <input onChange={event => setSortingType(event.target.value)} checked="true" name="sortSelector" id="profit" value="profit" type="radio" />
                 <label htmlFor="profit">Sort By Profit</label>
                 <input onChange={event => setSortingType(event.target.value)} name="sortSelector" id="profit/trade" value="profit/trade" type="radio" />
                 <label htmlFor="profit/trade">Sort By Profit Per Trade</label>
