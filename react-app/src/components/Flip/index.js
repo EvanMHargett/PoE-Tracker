@@ -42,6 +42,13 @@ function Flip({flip, color}){
     else{
         colorName="lighter"
     }
+    let profitColor
+    if(flip.profit > 0){
+        profitColor = "green"
+    }
+    else{
+        profitColor = "red"
+    }
 
     return (
         <div className={`container flip-container ${colorName}`}>
@@ -53,7 +60,7 @@ function Flip({flip, color}){
                 <div className="col-md-1">{flip.cost}</div>
                 <div className="col-md-1">{flip.revenue}</div>
                 <div className="col-md-1">{flip.trades}</div>
-                <div className="col-md-1">{flip.profit}</div> 
+                <div className={`col-md-1 ${profitColor}`}>{flip.profit}</div> 
                 <div className="col-md-2">
                     { favorites[flip.id] ?
                         <FavoriteBorder id={flip.id} onClick={toggleFavoriteFlip} style={{ color: 'red' }}></FavoriteBorder>

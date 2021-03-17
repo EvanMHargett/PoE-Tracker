@@ -16,6 +16,9 @@ function FlipsPage(){
     let flipsArr = []
     if(flips){
         flipsArr =Object.entries(flips)
+        flipsArr.sort((a, b) => {
+            return b[1].profit - a[1].profit
+        })
     }
 
     return (
