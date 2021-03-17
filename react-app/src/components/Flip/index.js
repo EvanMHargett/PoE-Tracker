@@ -43,11 +43,13 @@ function Flip({flip, color}){
         colorName="lighter"
     }
     let profitColor
-    if(flip.profit > 0){
-        profitColor = "green"
-    }
-    else{
-        profitColor = "red"
+    if(flip){
+        if(flip.profit > 0){
+            profitColor = "green"
+        }
+        else{
+            profitColor = "red"
+        }
     }
 
     return (

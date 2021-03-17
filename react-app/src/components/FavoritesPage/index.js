@@ -8,8 +8,12 @@ function FavoritesPage(){
     const flips = useSelector(state => state.flips)
 
     let favoritesArr = []
-    if(favorites){
+    if(favorites && Object.keys(flips).length){
         favoritesArr =Object.entries(favorites)
+        favoritesArr.sort((a, b) => {
+            console.log(flips[a[0]], b)
+            return flips[b[0]].profit - flips[a[0]].profit
+        })
     }
 
     return (
