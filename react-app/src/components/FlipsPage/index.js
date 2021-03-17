@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Flip from '../Flip'
 import './FlipsPage.css'
 import {useSelector, useDispatch} from 'react-redux'
@@ -9,6 +9,9 @@ function FlipsPage(){
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
 
+    const [sortingType, setSortingType] = useState("profit")
+
+
     const update = () =>{
         dispatch(updateItemData())
     }
@@ -16,9 +19,21 @@ function FlipsPage(){
     let flipsArr = []
     if(flips){
         flipsArr =Object.entries(flips)
-        flipsArr.sort((a, b) => {
-            return b[1].profit - a[1].profit
-        })
+        if(sortingType === "profit"){
+            flipsArr.sort((a, b) => {
+                return b[1].profit - a[1].profit
+            })
+        }
+        else if(sortingType === "profit/trade"){
+            flipsArr.sort((a, b) => {
+                return b[1].profit / b[1].trades - a[1].profit / a[1].trades
+            })
+        }
+        else if(sortingType === "profit/cost"){
+            flipsArr.sort((a, b) => {
+                return b[1].profit / b[1].cost - a[1].profit / a[1].cost
+            })
+        }
     }
 
     return (
@@ -53,6 +68,14 @@ function FlipsPage(){
                     }
                 </div>
             }
+            <div>
+                <input onChange={event => setSortingType(event.target.value)} name="sortSelector" id="profit" value="profit" type="radio" />
+                <label htmlFor="profit">Sort By Profit</label>
+                <input onChange={event => setSortingType(event.target.value)} name="sortSelector" id="profit/trade" value="profit/trade" type="radio" />
+                <label htmlFor="profit/trade">Sort By Profit Per Trade</label>
+                <input onChange={event => setSortingType(event.target.value)} name="sortSelector" id="profit/cost" value="profit/cost" type="radio" />
+                <label htmlFor="profit/cost">Sort By Profit Per Cost</label>
+            </div>
         </div>
     )
 }
