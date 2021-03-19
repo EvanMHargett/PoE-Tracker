@@ -118,11 +118,11 @@ def getAllItems():
         input1 = Item.query.filter_by(name=flip["input1Name"]).first()
         output = Item.query.filter_by(name=flip["outputName"]).first()
         newFlip = Flip(
-            input1Id=flip["input1Id"],
+            input1Id=input1.id,
             input1Quantity=flip["input1Quantity"],
             # input2Id=flip.input2Id,
             # input2Quantity=flip.input2Quantity,
-            outputId=flip["outputId"],
+            outputId=output.id,
             outputQuantity=flip["outputQuantity"],
             trades=int(flip["input1Quantity"])+ 1,
             cost=input1.priceInC * int(flip["input1Quantity"]),

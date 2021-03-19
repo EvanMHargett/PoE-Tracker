@@ -3,6 +3,8 @@ import Flip from '../Flip'
 import './FlipsPage.css'
 import {useSelector, useDispatch} from 'react-redux'
 import { updateItemData } from '../../store/flips'
+import { getAllFavorites } from '../../store/favorites'
+import { getAllComments } from '../../store/comments'
 
 function FlipsPage(){
     const flips = useSelector(state => state.flips)
@@ -14,6 +16,8 @@ function FlipsPage(){
 
     const update = () =>{
         dispatch(updateItemData())
+        dispatch(getAllFavorites())
+        dispatch(getAllComments())
     }
 
     let flipsArr = []
