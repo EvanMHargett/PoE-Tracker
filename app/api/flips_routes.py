@@ -40,3 +40,15 @@ def createFlip():
     db.session.commit()
 
     return "Adedd flip"
+
+@flip_routes.route('/<int:id>/delete/')
+def deleteFlip(id):
+    # print("current user",current_user.get_id(), dir(current_user))
+    # if current_user.email != "admin@aa.io":
+    #     return "Access Denied, must be logged in as admin", 403
+    flip = Flip.query.get(id)
+    db.session.delete(flip)
+    db.session.commit()
+    
+
+    return "Deleted"

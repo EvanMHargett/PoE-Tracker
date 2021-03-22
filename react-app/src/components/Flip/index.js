@@ -5,11 +5,13 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import {createFavorite, removeFavorite} from '../../store/favorites'
 import {postComment, deleteComment} from '../../store/comments'
 import {useDispatch, useSelector} from 'react-redux'
+import {deleteFlip} from '../../store/flips'
 
 function Flip({flip, color}){
     const dispatch = useDispatch()
     const favorites = useSelector((state) => state.favorites)
     const comments = useSelector((state) => state.comments)
+    const user = useSelector(state => state.session.user)
     const [editing, setEditing] = useState(false)
     const [comment, setComment] = useState("")
 
@@ -20,6 +22,10 @@ function Flip({flip, color}){
         else{
             dispatch(createFavorite(flip.id))
         }
+    }
+
+    function deleteFlipButton(){
+        dispatch(deleteFlip(flip.id))
     }
 
     function toggleEdit(){
@@ -81,6 +87,15 @@ function Flip({flip, color}){
                             <DeleteIcon onClick={deleteFlipComment}></DeleteIcon>
                             <div>{comments[flip.id].content}</div>
                         </div>
+                    }
+                    {user &&
+                        <div>
+                            {user.email=== "admin@aa.io" && 
+                                <button onClick={deleteFlipButton}> Delete this flip
+                                </button>
+                            }
+                        </div>
+
                     }
                    
                 </div>

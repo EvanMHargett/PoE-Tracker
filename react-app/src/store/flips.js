@@ -32,6 +32,13 @@ export const createFlip = (flip) => async (dispatch) =>{
     return "testing"
 }
 
+export const deleteFlip = (id) => async (dispatch) =>{
+    await fetch(`/api/flips/${id}/delete`)
+    // const json = await flip.json()
+    dispatch(getAllFlips())
+    return "testing"
+}
+
 const initialState = {}
 
 const flipsReducer = (state = initialState, action) => {
