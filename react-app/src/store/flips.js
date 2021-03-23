@@ -33,7 +33,7 @@ export const createFlip = (flip) => async (dispatch) =>{
 }
 
 export const deleteFlip = (id) => async (dispatch) =>{
-    await fetch(`/api/flips/${id}/delete`)
+    await fetch(`/api/flips/${id}/delete/`)
     // const json = await flip.json()
     dispatch(getAllFlips())
     return "testing"

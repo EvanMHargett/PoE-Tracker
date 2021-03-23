@@ -91,7 +91,7 @@ function Flip({flip, color}){
                     {user &&
                         <div>
                             {user.email=== "admin@aa.io" && 
-                                <button onClick={deleteFlipButton}> Delete this flip
+                                <button onClick={deleteFlipButton} className="comment-button"> Delete this flip
                                 </button>
                             }
                         </div>
