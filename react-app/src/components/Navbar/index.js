@@ -26,8 +26,9 @@ const NavBar = ({ setAuthenticated }) => {
       <div className='menu'>
         <div className='logo'>
           <NavLink  to="/" exact={true} activeClassName="active" className="link">
-            <div>PoE Tracker</div>
+            <img src="/Logo.png" alt="Logo"></img>
           </NavLink>
+
         </div>
         <div className='search'>
           <form onSubmit={searchFlips}>
