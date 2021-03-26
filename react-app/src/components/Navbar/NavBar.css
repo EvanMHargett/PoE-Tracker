@@ -141,3 +141,7 @@ input:focus {
 .link{
     color: whitesmoke !important;
 }
+
+.logo{
+    height: 80;
+}

@@ -24,9 +24,9 @@ const NavBar = ({ setAuthenticated }) => {
   return (user &&
     <nav>
       <div className='menu'>
-        <div className='logo'>
+        <div >
           <NavLink  to="/" exact={true} activeClassName="active" className="link">
-            <img src="/Logo.png" alt="Logo"></img>
+            <img className='logo' src="/Logo.png" alt="Logo"></img>
           </NavLink>
 
         </div>
