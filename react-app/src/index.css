@@ -256,3 +256,8 @@ h5 {
 .file-input div:hover {
     box-shadow: 0 0 3px rgb(206, 206, 206);
 }
+
+.form-control{
+  color: whitesmoke !important;
+  background-color: rgb(70,70,70) !important;
+}

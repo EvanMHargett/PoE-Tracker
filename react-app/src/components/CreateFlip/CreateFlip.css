@@ -1,5 +1,14 @@
 .searchArr{
     color: whitesmoke;
+    
+}
+
+.flip-button{
+    background-color: rgb(70,70,70);
+    color: whitesmoke
+}
+
+.container{
     background-color: rgb(20,20,20);
 }
 

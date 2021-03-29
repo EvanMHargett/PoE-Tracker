@@ -41,26 +41,41 @@ const CreateFlip = () =>{
 
     return (
         <div className="page-container create-container">
-            <div className="searchHolder">
-                <Search></Search>
-                {   searchArr && 
-                     <div className="searchArr"> 
-                        {   searchArr.map((item) => 
-                            <div key={item[0]}> Item Name: {item[1].name} Item ID: {item[0]}</div>
-                            )
-                        }
+            <div className="container">
+                
+                    <Search></Search>
+                    {   searchArr && 
+                        <div className="searchArr"> 
+                            {   searchArr.map((item) => 
+                                <div key={item[0]}> Item Name: {item[1].name} Item ID: {item[0]}</div>
+                                )
+                            }
+                        </div>
+                    }
+       
+                <form onSubmit={makeFlip} className="flipForm">
+                    <div >
+                        <div class="form-group">
+                            <input type="number" className="form-control" placeholder="Input 1 ID" value={input1Id} onChange={e => {setInput1Id(e.target.value)}}></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" className="form-control" placeholder="Input 1 Quantity" value={input1Quantity} onChange={e => {setInput1Quantity(e.target.value)}}></input>
+                        </div>
+                        {/* <input type="number" placeholder="Input 2 ID" value={input2Id} onChange={e => {setInput2Id(e.target.value)}}></input>
+                        <input type="number" placeholder="Input 2 Quantity" value={input2Quantity} onChange={e => {setInput2Quantity(e.target.value)}}></input> */}
+                        <div class="form-group">
+                            <input type="number" className="form-control" placeholder="Output ID" value={outputId} onChange={e => {setOutputId(e.target.value)}}></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" className="form-control" placeholder="Output Quantity" value={outputQuantity} onChange={e => {setOutputQuantity(e.target.value)}}></input>
+                        </div>
+                        <div class="form-group">
+                            <button className="flip-button"type="submit">Create Flip</button>
+                        </div>
+
                     </div>
-                }
+                </form>
             </div>
-            <form onSubmit={makeFlip} className="flipForm">
-                <input type="number" placeholder="Input 1 ID" value={input1Id} onChange={e => {setInput1Id(e.target.value)}}></input>
-                <input type="number" placeholder="Input 1 Quantity" value={input1Quantity} onChange={e => {setInput1Quantity(e.target.value)}}></input>
-                <input type="number" placeholder="Input 2 ID" value={input2Id} onChange={e => {setInput2Id(e.target.value)}}></input>
-                <input type="number" placeholder="Input 2 Quantity" value={input2Quantity} onChange={e => {setInput2Quantity(e.target.value)}}></input>
-                <input type="number" placeholder="Output ID" value={outputId} onChange={e => {setOutputId(e.target.value)}}></input>
-                <input type="number" placeholder="Output Quantity" value={outputQuantity} onChange={e => {setOutputQuantity(e.target.value)}}></input>
-                <button type="submit">Create Flip</button>
-            </form>
         </div>
     )
 }

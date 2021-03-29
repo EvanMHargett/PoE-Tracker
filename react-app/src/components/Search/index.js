@@ -18,8 +18,8 @@ const Search = () =>{
 
     return (
         <form onSubmit={onSearchName}>
-            <div>
-              <input onChange={e => {setSearchTerm(e.target.value)}} type='search' placeholder='Search for flips by name' style={{ border: 'none' }} value={searchTerm}></input>
+            <div className="form-group">
+              <input className="form-control" onChange={e => {setSearchTerm(e.target.value)}} type='search' placeholder='Search for items by name' style={{ border: 'none' }} value={searchTerm}></input>
             </div>
         </form>
     )
