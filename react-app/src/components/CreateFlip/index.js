@@ -80,6 +80,7 @@ const CreateFlip = () =>{
 
                     </div>
                 </form>
+                <div className="explanation">Note that normal users cannot delete/edit existing flips, to limit the possibility of griefing the site as flips are not tied to an individual.</div>
             </div>
         </div>
     )
