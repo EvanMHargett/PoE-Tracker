@@ -54,6 +54,7 @@
     width: auto;
     padding-left: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .li{
@@ -61,17 +62,22 @@
     width: auto;
     padding-left: 20px;
     margin-top: 20px;
+     margin-bottom: 20px;
 }
 .about{
-    background-color: rgb(200, 200, 200);
+    background-color: rgb(80, 80, 80);
     width: 100%;
     text-align: start;
     position: fixed;
     bottom: 0;
     left: 0;
+    color: whitesmoke;
 }
 
 .name{
+    padding-top: 10px;
+    vertical-align: middle;
+    font-size: 120%;
     display: inline-block !important;
     margin-left: 15px;
 }
