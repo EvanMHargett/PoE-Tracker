@@ -9,6 +9,7 @@ import UsersList from "./components/UsersList"
 import FavoritesPage from "./components/FavoritesPage"
 import User from "./components/User"
 import CreateFlip from "./components/CreateFlip"
+import Splash from "./components/Splash"
 import { authenticate } from "./services/auth"
 import FlipsPage from './components/FlipsPage'
 import {getAllFlips} from './store/flips'
@@ -69,8 +70,11 @@ function App() {
         <ProtectedRoute path="/search-results" exact={true} authenticated={authenticated}>
           <SearchResults />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+        <ProtectedRoute path="/flips" exact={true} authenticated={authenticated}>
           <FlipsPage/>
+        </ProtectedRoute>
+        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+          <Splash/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

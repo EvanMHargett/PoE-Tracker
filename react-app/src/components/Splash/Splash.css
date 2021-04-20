@@ -1,0 +1,76 @@
+/* styling based off pure css template*/
+
+
+.splash {
+    background-color: rgb(30,30,30);
+    z-index: 1;
+    overflow: hidden;
+    /* The following styles are required for the "scroll-over" effect */
+    width: 80%;
+    height: 100%;
+    top: 0;
+    left: 10%;
+    position: fixed !important;
+}
+
+.main {
+    /* absolute center .splash within .splash-container */
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.head {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: 3px solid white;
+    padding: 1em 1.6em;
+    font-weight: 100;
+    border-radius: 5px;
+    line-height: 1em;
+    margin-bottom: 30px;
+}
+
+.splash-text {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+.splash-button {
+    background: white;
+    color: #1f8dd6 !important;
+    border-radius: 5px;
+}
+
+.gh{
+    max-height: 47px;
+    width: auto;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.li{
+    max-height: 47px;
+    width: auto;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+.about{
+    background-color: rgb(200, 200, 200);
+    width: 100%;
+    text-align: start;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.name{
+    display: inline-block !important;
+    margin-left: 15px;
+}

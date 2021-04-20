@@ -26,7 +26,7 @@ const NavBar = ({ setAuthenticated }) => {
       <div className='menu'>
         <div >
           <NavLink  to="/" exact={true} activeClassName="active" className="link">
-            <img className='logo' src="/Logo.png" alt="Logo"></img>
+            <img className='logo' src="https://i.imgur.com/BdqMDGf.png" alt="Logo"></img>
           </NavLink>
 
         </div>
@@ -37,8 +37,8 @@ const NavBar = ({ setAuthenticated }) => {
         </div>
         <div className='user-buttons'>
           <div className='icons-container'>
-            <NavLink to="/" exact={true} activeClassName="active" className="link">
-              Home
+            <NavLink to="/flips" exact={true} activeClassName="active" className="link">
+              Flips
             </NavLink>
           </div>
           <div className='icons-container'>
