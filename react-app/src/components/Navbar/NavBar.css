@@ -34,6 +34,7 @@ input:focus {
     padding: 4px;
     background-color: rgb(250, 250, 250);
     display: flex;
+    margin-left: 12%;
 }
 
 .search > input {
