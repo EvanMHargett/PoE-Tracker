@@ -42,6 +42,11 @@ const CreateFlip = () =>{
     return (
         <div className="page-container create-container">
             <div className="container">
+                <div className="explanation">
+                    Create a new flip by searching for the input and outputs by name and filling in the relevant information. Search by using the bar immediately below <br></br>
+                    If you don't know a flip, but want to test the application:
+                    9 copies of "The Iron Bard" can be exchanged for 1 "Trash To Treasure"
+                </div>
                 
                     <Search></Search>
                     {   searchArr && 
