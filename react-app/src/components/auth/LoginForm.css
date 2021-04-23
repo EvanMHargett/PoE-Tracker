@@ -1,0 +1,30 @@
+
+
+.container input {
+  border: none;
+  padding: 0.45rem;
+  
+}
+
+.container form {
+  width: 80%;
+  background-color: rgb(40, 40, 40);
+  
+}
+
+.input:focus{
+    padding: 0px;
+    background-color: red;
+}
+
+.redirect-container{
+    width: 100%;
+}
+
+.links{
+    color: whitesmoke !important;
+}
+
+.top{
+    color: whitesmoke;
+}

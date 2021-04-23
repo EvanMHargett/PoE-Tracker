@@ -1,0 +1,36 @@
+.paragraph {
+    font-weight: 600;
+    text-align: center;
+}
+
+.paragraph-container {
+    display: flex;
+    width: 80%;
+}
+
+.container input {
+  border: none;
+  padding: 0.45rem;
+  
+}
+
+.container form {
+  width: 80%;
+  background-color: rgb(40, 40, 40);
+}
+
+.input{
+    padding: 10px;
+}
+
+.redirect-container{
+    width: 100%;
+}
+
+.links{
+    color: whitesmoke !important;
+}
+
+.top{
+    color: whitesmoke;
+}

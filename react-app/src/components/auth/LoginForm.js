@@ -6,6 +6,8 @@ import { getAllFavorites } from "../../store/favorites";
 import { getAllFlips } from "../../store/flips";
 import { addUser } from "../../store/session";
 import {useDispatch} from 'react-redux'
+import "./LoginForm.css"
+
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
   const [errors, setErrors] = useState([]);
@@ -35,6 +37,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
       setAuthenticated(true);
       dispatch(addUser(user))
       dispatch(getAllComments())
+      dispatch(getAllFlips())
       dispatch(getAllFavorites())
     } else {
       setErrors(user.errors);
@@ -55,6 +58,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <div className='page-container'>
+      <div className='container'> 
+      <h4 className="top">Log In</h4>
       <form onSubmit={onLogin}>
         <div>
           {errors.map((error) => (
@@ -84,11 +89,12 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
             <button type="submit" className='blue-submit-button'>Login</button>
           </div>
           <div className='container redirect-container'>
-            <p>Don't have an account? <nobr><a href='/sign-up'>Sign up</a></nobr></p>
-            <p>Use a demo account? <nobr><a onClick={demo} className='demo-link'>Demo</a></nobr></p>
+            <p className="links">Don't have an account? <nobr><a href='/sign-up' >Sign up</a></nobr></p>
+            <p className="links">Use a demo account? <nobr><a onClick={demo} >Demo</a></nobr></p>
           </div>
         </div>
       </form>
+      </div>
     </div>
   );
 };

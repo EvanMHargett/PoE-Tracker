@@ -52,6 +52,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
 
   return (
     <div className='page-container'>
+      <div className="container">
+      <h4 className="top">Sign Up</h4>
       <form onSubmit={onSignUp}>
         <div className="field-inputs">
           <label>User Name</label>
@@ -94,9 +96,10 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
             <button type="submit" className='blue-submit-button'>Sign Up</button>
         </div>
         <div className='container redirect-container'>
-            <p>Already have an account? <nobr><a href='/login'>Log in</a></nobr></p>
+            <p className="links">Already have an account? <nobr><a href='/login'>Log in</a></nobr></p>
         </div>
       </form>
+      </div>
     </div>
   );
 };

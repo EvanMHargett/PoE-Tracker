@@ -32,7 +32,7 @@ def getAllItems():
     
     db.session.execute('TRUNCATE items CASCADE;')
     db.session.execute("ALTER SEQUENCE items_id_seq RESTART WITH 1")
-    resp, content = httplib2.Http().request("https://poe.ninja/api/data/currencyoverview?league=Ritual&type=Currency")
+    resp, content = httplib2.Http().request("https://poe.ninja/api/data/currencyoverview?league=Ultimatium&type=Currency")
     decoded = content.decode('ascii')
     jsonObj = json.loads(decoded)
     item_list = jsonObj["lines"]
@@ -43,7 +43,7 @@ def getAllItems():
         )
         db.session.add(newItem)
 
-    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ritual&type=DivinationCard")
+    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ultimatium&type=DivinationCard")
     decoded2 = content2.decode('ascii')
     jsonObj2 = json.loads(decoded2)
     item_list2 = jsonObj2["lines"]
@@ -54,7 +54,7 @@ def getAllItems():
         )
         db.session.add(newItem)
 
-    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ritual&type=Prophecy")
+    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ultimatium&type=Prophecy")
     decoded2 = content2.decode('ascii')
     jsonObj2 = json.loads(decoded2)
     item_list2 = jsonObj2["lines"]
@@ -65,7 +65,7 @@ def getAllItems():
         )
         db.session.add(newItem)
 
-    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ritual&type=UniqueJewel")
+    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ultimatium&type=UniqueJewel")
     decoded2 = content2.decode('ascii')
     jsonObj2 = json.loads(decoded2)
     item_list2 = jsonObj2["lines"]
@@ -76,7 +76,7 @@ def getAllItems():
         )
         db.session.add(newItem)
 
-    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ritual&type=UniqueWeapon")
+    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ultimatium&type=UniqueWeapon")
     decoded2 = content2.decode('ascii')
     jsonObj2 = json.loads(decoded2)
     item_list2 = jsonObj2["lines"]
@@ -87,7 +87,7 @@ def getAllItems():
         )
         db.session.add(newItem)
 
-    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ritual&type=UniqueArmour")
+    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ultimatium&type=UniqueArmour")
     decoded2 = content2.decode('ascii')
     jsonObj2 = json.loads(decoded2)
     item_list2 = jsonObj2["lines"]
@@ -98,7 +98,7 @@ def getAllItems():
         )
         db.session.add(newItem)
 
-    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ritual&type=UniqueAccessory")
+    resp2, content2 = httplib2.Http().request("https://poe.ninja/api/data/itemoverview?league=Ultimatium&type=UniqueAccessory")
     decoded2 = content2.decode('ascii')
     jsonObj2 = json.loads(decoded2)
 
